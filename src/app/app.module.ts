@@ -14,7 +14,6 @@ import * as $ from 'jquery';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { UsersComponent } from './users/users.component';
 import { ChamadosListComponent } from './chamados/chamados-list/chamados-list.component';
@@ -33,7 +32,6 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    EmailComponent,
     SignupComponent,
     UsersComponent,
     ChamadosListComponent

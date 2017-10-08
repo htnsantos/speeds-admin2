@@ -30,51 +30,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  loginFb() {
-
-    var self = this;
-    var provider = new firebase.auth.FacebookAuthProvider();
-
-    this.afAuth.auth.signInWithPopup(provider).then(function (result) {
-
-      var user = result.user;
-
-      var credential = result.credential;
-      self.router.navigate(['/users']);
-    }, function (error) {
-
-      var email = error.email;
-
-      var credential = error.credential;
-
-      self.error = error;
-      if (error.code === 'auth/account-exists-with-different-credential') {
-        this.afAuth.auth.fetchProvidersForEmail(email).then(function (providers) {
-
-        });
-      }
-    });
-  }
-
-  loginGoogle() {
-    firebase.auth().getRedirectResult().then(function (result) {
-      if (result.credential) {
-
-        var token = result.credential.accessToken;
-      }
-      var user = result.user;
-    });
-
-    var provider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-
-      var token = result.credential.accessToken;
-
-      var user = result.user;
-
-    });
-
+  onSubmit(formData) {
+    if(formData.valid) {
+      
+      firebase.auth().signInWithEmailAndPassword(
+        formData.value.email, 
+        formData.value.password
+      ).then(
+        (success) => {
+        console.log(success);
+        this.router.navigate(['/users']);
+      }).catch(
+        (err) => {
+        console.log(err);
+        this.error = err;
+      })
+    }
   }
 
   logout() {
