@@ -1,14 +1,14 @@
 <nav *ngIf="mostrarMenu" class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid font-header">
+    <img src="assets/images/logoheader.jpg" id="logoheader">
 
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="">Bem Vindo {{ name.displayName }}</a>
-    
+    <div class="navbar-header font-navheader">      
+      <a class="navbar-brand font-menu" routerLink="">Bem Vindo {{ name.displayName ? name.displayName : name.email }}</a>
     </div>
 
     <ul class="nav navbar-nav pull-right">
         <li routerLinkActive="active">
-            <a (click)="logout()">Logout</a>
+            <a class="font-menu" (click)="logout()">Logout</a>
         </li>
     </ul>
   </div>

@@ -21,10 +21,11 @@ export class ChamadosListComponent  {
    
     this.size$ = new BehaviorSubject(null);
     this.chamados = this.size$.switchMap(size =>
-      db.list('/chamados', ref =>
+      db.list('/Requests', ref =>
         size ? ref.orderByChild('nome').equalTo(size) : ref
       ).valueChanges()
     );
+    console.log(this.chamados);
   }
   filterBy(size: string|null) {
     this.size$.next(size);

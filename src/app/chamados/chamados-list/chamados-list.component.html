@@ -1,4 +1,4 @@
-<li *ngFor="let c of chamados | async" class="list-group-item">
+<li *ngFor="let c of chamados | async" class="list-group-item font-chamados">
     
-    <span class="glyphicon glyphicon-wrench"></span> {{c.nome }} {{ c.data | date: 'dd/MM/yyyy hh:MM:ss'}}
+    <span class="glyphicon glyphicon-wrench"></span> {{ c.nome }} {{c.status }} {{ c.data | date: 'dd/MM/yyyy hh:MM:ss'}}
 </li>

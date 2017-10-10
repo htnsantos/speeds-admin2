@@ -19,11 +19,11 @@ import { UsersComponent } from './users/users.component';
 import { ChamadosListComponent } from './chamados/chamados-list/chamados-list.component';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyANW95gP30NCgKZGCmS49amXCWoamMLCXg",
-    authDomain: "speeds-admin.firebaseapp.com",
-    databaseURL: "https://speeds-admin.firebaseio.com",
-    projectId: "speeds-admin",
-    storageBucket: "speeds-admin.appspot.com",
+    apiKey: "AIzaSyDDccmvaNyNMMXNTafEzdkPYh0Ym40jQZo",
+    authDomain: "speed-solution.firebaseapp.com",
+    databaseURL: "https://speed-solution.firebaseio.com",
+    projectId: "speed-solution",
+    storageBucket: "speed-solution.appspot.com",
     messagingSenderId: "261487848105"
   };
   
