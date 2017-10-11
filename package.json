@@ -5,14 +5,15 @@
     "node": "8.2.1"
   },
   "license": "MIT",
+  "main": "node Server.js",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build",
-    "start": "node Server.js"
+    "postinstall": "ng build"    
   },
   "private": true,
   "dependencies": {
