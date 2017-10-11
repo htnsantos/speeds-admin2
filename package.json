@@ -1,6 +1,9 @@
 {
   "name": "speeds-admin",
   "version": "0.0.0",
+  "engines": {
+    "node": "8.2.1"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
