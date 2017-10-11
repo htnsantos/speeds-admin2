@@ -1,3 +1,4 @@
+import { MapComponent } from './../map/map.component';
 import { ChamadosListComponent } from './../chamados/chamados-list/chamados-list.component';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Chamado } from './../model/chamado';
@@ -24,9 +25,10 @@ export class UsersComponent implements OnInit {
   name: any;
   state: string = '';
   chamados: Array<any>;
+  chamado: Chamado = new Chamado();
 
   constructor(public afAuth: AngularFireAuth, private router: Router, private authGuard: AuthGuard,
-    private angularFire: AngularFireDatabase) {
+    private angularFire: AngularFireDatabase, private map: MapComponent) {
     
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -37,15 +39,10 @@ export class UsersComponent implements OnInit {
 
   }
 
-  loadCollapse() {
-
-    $('.panel-collapse').on('show.bs.collapse', function () {
-      $(this).siblings('.panel-heading').addClass('active');
-    });
-
-    $('.panel-collapse').on('hide.bs.collapse', function () {
-      $(this).siblings('.panel-heading').removeClass('active');
-    });
+  carregarSolicitacao(chamado) {
+    this.chamado = chamado;
+    var locs = chamado.position_destino.split(',')
+    this.map.loadMapByLatLong(locs[0], locs[1]);
   }
 
   onSubmit(formData) {
@@ -61,7 +58,6 @@ export class UsersComponent implements OnInit {
 
 ngOnInit() {
   this.chamados = new Array<any>();
-  this.loadCollapse();
 }
 
 }

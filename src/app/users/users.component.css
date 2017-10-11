@@ -32,6 +32,22 @@ h2 {
     height: 100%;
 }
 
+
+.cor-fundo-solicitacao {
+    background: white;
+    height: 100%;
+    margin-top: -1px;
+}
+
+.font-chamado-label {
+    font-size: 14px;
+}
+
+.font-chamado-value {
+    font-size: 14px;
+    color: black
+}
+
 .container-right {
     float: right;
     height: 100%;

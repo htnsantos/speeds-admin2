@@ -1,3 +1,4 @@
+import { UsersComponent } from './../../users/users.component';
 import { Observable } from 'rxjs/Observable';
 import { Chamado } from './../../model/chamado';
 import { Component, OnInit } from '@angular/core';
@@ -12,14 +13,15 @@ import * as firebase from 'firebase/app';
   templateUrl: './chamados-list.component.html',
   styleUrls: ['./chamados-list.component.css']
 })
-export class ChamadosListComponent  {
+export class ChamadosListComponent {
 
   chamados: Observable<AngularFireAction<firebase.database.DataSnapshot>[]>;
-  size$: BehaviorSubject<string|null>;
+  size$: BehaviorSubject<string | null>;
 
-  constructor( private db: AngularFireDatabase) { 
-   
+  constructor(private db: AngularFireDatabase, private user: UsersComponent) {
+
     this.size$ = new BehaviorSubject(null);
+
     this.chamados = this.size$.switchMap(size =>
       db.list('/Requests', ref =>
         size ? ref.orderByChild('nome').equalTo(size) : ref
@@ -27,11 +29,15 @@ export class ChamadosListComponent  {
     );
     console.log(this.chamados);
   }
-  filterBy(size: string|null) {
+  filterBy(size: string | null) {
     this.size$.next(size);
   }
-  }
 
- 
+  chamadoSelecionado(chamado) {
+    this.user.carregarSolicitacao(chamado);
+  }
+}
+
+
 
 

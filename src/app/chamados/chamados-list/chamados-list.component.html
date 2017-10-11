@@ -1,4 +1,5 @@
-<li *ngFor="let c of chamados | async" class="list-group-item font-chamados">
+<li *ngFor="let c of chamados | async" class="list-group-item">
     
-    <span class="glyphicon glyphicon-wrench"></span> {{ c.nome }} {{c.status }} {{ c.data | date: 'dd/MM/yyyy hh:MM:ss'}}
+    <img src="{{ c.type | getImage: 'teste'}}" width="30px" height="30px" class="space-image"/> 
+    <a class="list-chamado" (click)="chamadoSelecionado(c)"> {{ c.solicitante }} {{ c.data_solicitacao | date: 'hh:MM'}} </a>
 </li>
